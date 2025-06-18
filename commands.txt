@@ -25,3 +25,6 @@ INSERT INTO `proyectofinal.afiliados` (documento, nombre, estado, fecha_afiliaci
   ('555555555', 'Carlos Ruiz', 'activo', DATE '2021-12-20', 0.00),
   ('111222333', 'Laura Mejía', 'activo', DATE '2023-08-12', 340000.50);
 
+
+**permitir acceso público a gcs: cualquiera pueda ver archivos pero no subir, borrar ni listar.
+gsutil iam ch allUsers:objectViewer gs://certificados-temporales-lv
