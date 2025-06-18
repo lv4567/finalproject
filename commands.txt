@@ -1,0 +1,27 @@
+*crear bucket temporal
+gsutil mb -l us-central1 gs://certificados-temporales-lv
+gsutil uniformbucketlevelaccess set on gs://certificados-temporales-lv
+
+*crear la imagen:
+gcloud builds submit --tag gcr.io/hazel-design-463214-v7/pasarela-web
+
+*deploy app:
+gcloud run deploy certificados --image gcr.io/hazel-design-463214-v7/certificados  --platform managed  --region us-central1  --allow-unauthenticated
+
+*crear datos de pruebas en bq
+
+CREATE TABLE `proyectofinal.afiliados` (
+  documento STRING,            -- documento de identidad
+  nombre STRING,               -- nombre completo
+  estado STRING,               -- 'activo' o 'inactivo'
+  fecha_afiliacion DATE,       -- fecha de afiliación
+  saldo NUMERIC                -- saldo disponible (para certificados con saldo)
+);
+
+
+INSERT INTO `proyectofinal.afiliados` (documento, nombre, estado, fecha_afiliacion, saldo) VALUES
+  ('123456789', 'Juan Pérez', 'activo', DATE '2023-01-10', 150000.00),
+  ('987654321', 'Ana Gómez', 'inactivo', DATE '2022-06-05', 0.00),
+  ('555555555', 'Carlos Ruiz', 'activo', DATE '2021-12-20', 0.00),
+  ('111222333', 'Laura Mejía', 'activo', DATE '2023-08-12', 340000.50);
+

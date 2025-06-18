@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generar Certificado</title>
+</head>
+<body>
+  <h2>Formulario</h2>
+  <form id="formulario">
+    <label>Nombre:<br><input type="text" name="nombre"></label><br><br>
+    <label>Documento:<br><input type="text" name="documento"></label><br><br>
+    <label>Tipo:<br>
+      <input type="radio" name="tipo_certificado" value="saldo" checked> Con saldo<br>
+      <input type="radio" name="tipo_certificado" value="sin_saldo"> Sin saldo
+    </label><br><br>
+    <button type="submit">Generar</button>
+  </form>
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById("formulario").onsubmit = async function(e) {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+      const res = await fetch("/generar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      document.getElementById("resultado").innerHTML = result.url_certificado ?
+        `<button onclick="window.open('${result.url_certificado}', '_blank')">Abrir Certificado</button>` :      
+        `Error: ${result.error}`;
+    };
+  </script>
+</body>
+</html>
