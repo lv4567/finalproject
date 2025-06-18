@@ -5,7 +5,8 @@ Diariamente recibe solicitudes del equipo comercial externo para generar un cert
 
 ## Propuesta de solución:
 Disponer una web para solicitud y descarga del certificado, bajo el siguiente esquema:
- ![image](https://github.com/user-attachments/assets/3ac5b95f-50eb-4a0e-9e8d-54c2dfa87480)
+ ![image](https://github.com/user-attachments/assets/7c79b2d9-d417-49af-b6ba-85f3c9fdfbb3)
+
 
 ### Detalle del flujo del proceso:
 
@@ -19,14 +20,16 @@ Disponer una web para solicitud y descarga del certificado, bajo el siguiente es
 
 ## Mock-up 
 
- ![image](https://github.com/user-attachments/assets/86203526-0d4a-4bcd-8d4d-cb52c93df1b5)
+![image](https://github.com/user-attachments/assets/86203526-0d4a-4bcd-8d4d-cb52c93df1b5)
 
 ![image](https://github.com/user-attachments/assets/aaacc577-9bb3-4b3f-bdc0-ab7c61167cbf)
 
- ![image](https://github.com/user-attachments/assets/03cd04e1-4740-495e-a362-16f6cbb07d6a)
+![image](https://github.com/user-attachments/assets/03cd04e1-4740-495e-a362-16f6cbb07d6a)
 
+![image](https://github.com/user-attachments/assets/c728013e-45c6-4fc1-a011-149cc09c15f4)
 
- 
+![image](https://github.com/user-attachments/assets/d9dc34e2-9c94-4763-8b90-0974c685508e)
+
 
 ## Evolutivos:
 1 	Implementar un key.json para que el entorno de CGS no sea público
